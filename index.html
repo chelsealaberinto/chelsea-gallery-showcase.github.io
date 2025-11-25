@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chelsea's Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="h1 text-center p-5">
+          Welcome!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="display-4">
+          Gallery
+        </div>
+      </div>
+    </div>
+    <div class="row" id="content">
+    </div>
+  </div>
+
+  <script>
+    var content = document.getElementById("content");
+    var people = ["Snow White", "Cinderella", "Aurora", "Ariel", "Belle", "Jasmin", "Pocahontas", "Mulan", "Tiana", "Rapunzel", "Merida", "Moana", "Raya", "Elsa", "Anna", "Vanellope"];
+    var description = ["Snow White and the Seven Dwarfs (1937)", "Cinderella (1950)", "Sleeping Beauty (1959)", "The Little Mermaid (1989)", "Beauty and the Beast (1991)", "Aladdin (1992)", "Pocahontas (1995)", "Mulan (1998)", "The Princess and the Frog (2009)", "Tangled (2010)", "Brave (2012)", "Moana (2016)", "Raya and the Last Dragon (2021)", "Frozen (2013)", "Frozen II (2019)", "Ralph Breaks the Internet (2018)"];
+    var assets = ["assets/1.png", "assets/2.png", "assets/3.png", "assets/4.png", "assets/5.png", "assets/6.png", "assets/7.png", "assets/8.png", "assets/9.png", "assets/10.png", "assets/11.png", "assets/12.png", "assets/13.png", "assets/14.png", "assets/15.png", "assets/16.png"];
+
+    for (var i = 0; i < people.length; i++) {
+      content.innerHTML += `
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card shadow my-3">
+            <img src="`+ assets[i] + `" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">` + people[i] + `</h5>
+              <p class="card-text">
+                ` + description[i] + `
+              </p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
