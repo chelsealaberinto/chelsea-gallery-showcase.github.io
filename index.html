@@ -5,25 +5,75 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chelsea's Gallery</title>
+  <link rel="icon" type="sea logo/png" href="assets/sea logo.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="h1 text-center p-5">
-          Welcome!
+
+
+  <div class="container-fluid position-sticky top-0 p-0 p-lg-3" style="z-index: 1;">
+    <div class="container-xl p-0">
+      <div class="glass shadow-sm rounded-5 border-bottom" style="padding: 1rem 2rem; /* thinner padding */ 
+                background-color: rgba(255, 255, 255, 0.75); /* more transparent */ 
+                backdrop-filter: blur(5px); 
+                transition: background-color 0.4s ease, backdrop-filter 0.4s ease;">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
+          <div class="d-flex flex-row align-items-center">
+            <a href="../../../">
+              <img src="assets/sea logo.png" style="width: 50px; height: 50px; margin-right: 1rem;">
+            </a>
+            <div class="d-flex flex-row mt-2 mt-lg-0 flex-wrap justify-content-center align-items-center gap-3">
+              <a href="#" class="nav-link"><small>Home</small></a>
+              <a href="#collection" class="nav-link"><small>Collections</small></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
+
+  <section id="home" class="d-flex align-items-center justify-content-center text-white text-center position-relative"
+    style="min-height:90vh; overflow:hidden; margin:0; padding:0;">
+
+    <!-- Video Background -->
+    <video autoplay loop muted playsinline style="position:absolute; top:0; left:0; width:100%; height:100%;
+               object-fit:cover; z-index:-2; filter:brightness(60%); margin:0; padding:0; ">
+      <source src="assets/banner.mp4" type="video/mp4">
+    </video>
+
+    <!-- Dark Overlay -->
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%;
+                background:black; opacity:0.35; z-index:-1;"></div>
+
+    <!-- Content -->
+    <div class="container position-relative" style="z-index:1;">
+
+      <h1 class="display-1 fw-bold mb-3 text-white" style="font-family:'Cormorant Garamond', serif;
+                   text-shadow:0 4px 15px rgba(0,0,0,0.9);">
+        Once Upon a Dream
+      </h1>
+
+      <p class="lead fs-4 mb-5 text-light" style="max-width:700px; margin:0 auto; opacity:0.85;">
+        Step into a magical realm of Disney Princesses — timeless stories of courage, beauty, and enchantment.
+      </p>
+
+      <!-- Pill-Shaped Elegant Button -->
+      <a href="#collection" class="btn btn-outline-light btn-lg text-uppercase fw-bold" style="
+                padding:14px 45px;border-radius:50px;letter-spacing:2px;border-width:2px;font-family:'Cormorant Garamond', serif;backdrop-filter:blur(3px);box-shadow:0 0 20px rgba(255,255,255,0.3);
+            ">
+        Begin Your Royal Exploration
+      </a>
+    </div>
+  </section>
+
+
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="display-4">
+        <div class="display-4 text-center mb-4 my-5" id="collection">
           Gallery
         </div>
       </div>
@@ -34,26 +84,39 @@
 
   <script>
     var content = document.getElementById("content");
-    var people = ["Snow White", "Cinderella", "Aurora", "Ariel", "Belle", "Jasmin", "Pocahontas", "Mulan", "Tiana", "Rapunzel", "Merida", "Moana", "Raya", "Elsa", "Anna", "Vanellope"];
+    var people = ["Snow White", "Cinderella", "Aurora", "Ariel", "Belle", "Jasmine", "Pocahontas", "Mulan", "Tiana", "Rapunzel", "Merida", "Moana", "Raya", "Elsa", "Anna", "Vanellope"];
     var description = ["Snow White and the Seven Dwarfs (1937)", "Cinderella (1950)", "Sleeping Beauty (1959)", "The Little Mermaid (1989)", "Beauty and the Beast (1991)", "Aladdin (1992)", "Pocahontas (1995)", "Mulan (1998)", "The Princess and the Frog (2009)", "Tangled (2010)", "Brave (2012)", "Moana (2016)", "Raya and the Last Dragon (2021)", "Frozen (2013)", "Frozen II (2019)", "Ralph Breaks the Internet (2018)"];
-    var assets = ["assets/1.png", "assets/2.png", "assets/3.png", "assets/4.png", "assets/5.png", "assets/6.png", "assets/7.png", "assets/8.png", "assets/9.png", "assets/10.png", "assets/11.png", "assets/12.png", "assets/13.png", "assets/14.png", "assets/15.png", "assets/16.png"];
+    var assets = ["assets/snow.png", "assets/cinderella.png", "assets/aurora.png", "assets/ariel.png", "assets/belle.png", "assets/jasmine.png", "assets/pocahontas.png", "assets/mulan.png", "assets/tiana.png", "assets/rapunzel.png", "assets/merida.png", "assets/moana.png", "assets/raya.png", "assets/elsa.png", "assets/anna.png", "assets/vanellope.png"];
 
     for (var i = 0; i < people.length; i++) {
       content.innerHTML += `
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card shadow my-3">
-            <img src="`+ assets[i] + `" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">` + people[i] + `</h5>
-              <p class="card-text">
-                ` + description[i] + `
-              </p>
-            </div>
-          </div>
+    <div class="col-6 col-md-4 col-lg-3 d-flex">
+      <div class="card shadow my-3" style="display:flex; flex-direction:column; height:500px;">
+        <img src="`+ assets[i] + `" class="card-img-top" style="width:100%;">
+        <div class="card-body" style="flex-grow:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+          <h5 class="card-title">` + people[i] + `</h5>
+          <p class="card-text" style="margin-top:10px;">
+            ` + description[i] + `
+          </p>
         </div>
-      `;
+      </div>
+    </div>
+  `;
     }
   </script>
+
+  <div class="container-fluid glass mt-4 p-5 shadow-sm text-center border-top rounded-top-5">
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <img src="assets/sea logo.png" alt="Beaches Go Everywhere" style="height: 50px; width: 50px;">
+        </div>
+        <div class="my-2 text-secondary">
+          Every princess has a story — discover the magic within. &copy; 2025
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
